@@ -1,0 +1,65 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+
+<link href="/static/plugins/dropzone/dropzone.css" rel="stylesheet">
+<script type="text/javascript" src="/static/plugins/dropzone/dropzone.js"></script>
+
+{#<script type="text/javascript" src="/static/js/jquery-3.2.1.js"></script>#}
+<script type="text/javascript">
+    $(function () {
+        $("#button").click(function () {
+            $.ajax({
+                type:"POST",
+                url:'crm/test/',
+                data:{'name':$("#name").val(),"age":$("#age").val()},
+                dataType: "JSON",
+                success:function (arg) {
+                    if(arg.status){
+                        alert("用户名正确");
+                        $('#tian').html("");
+                        var name = document.createElement("span");
+                        var age = document.createElement("span");
+                        name.innerHTML='用户名为：'+arg.name;
+                        age.innerHTML='年龄为：' + arg.age;
+                        $('#tian').append(name);
+                        $('#tian').append(age);
+                    }else {
+                        alert("用户名或密码错误")
+                    }
+                },
+                errors:function () {
+                    alert("异常！")
+                }
+            })
+
+        })
+    });
+
+
+
+
+
+
+
+
+</script>
+</head>
+    <body>
+        请输入名字<input type="text" id="name">
+        请输入年龄<input type="test" id="age">
+        <input type="button" id="button" value="点击">
+        <div id="tian"></div>
+
+
+
+
+
+
+
+
+
+
+    </body>
+</html>

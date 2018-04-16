@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>两周内自动登录</title>
+    <script src="/jquery.cookise.js"></script>
+  </head>
+  <body>
+    <form action="" method="post" id="form1">
+      <input type="text" name="user" id="user" value="" />
+      <input type="password" name="pass" id="pass" value="" />
+      <input type="submit" value="提交" id="btn"/>
+      <input type="checkbox" name="checkbox" id="checkbox" value="" />两周内自动登录
+    </form>
+
+  </body>
+  <script type="text/javascript">
+    var oTxt1 = document.getElementsByName('user')[0],
+      oTxt2 = document.getElementsByName('pass')[0],
+      cked = document.getElementsByName('checkbox')[0],
+      oForm1 = document.getElementById('form1'),
+      oBtn = document.getElementById('btn');
+    oForm1.onsubmit = function(){
+      if(cked.checked){
+        alert('请注意！您已勾选自动登录。为了保护您的账号安全，请不要在公共电脑上这样做。')
+        setCookie('user',oTxt1.value,14);
+        setCookie('pass',oTxt2.value,14);
+      }
+    }
+    oTxt1.value = getCookie('user');
+    oTxt2.value = getCookie('pass');
+  </script>
+</html>

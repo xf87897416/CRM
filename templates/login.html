@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <div class="container col-lg-offset-4 ">
+      <form name="form1" class="form-signin col-lg-3 pu " method="post"  role="form" onsubmit="return check()">
+          {% csrf_token %}
+        <h3 class="form-signin-heading">Oldboy PerfectCRM</h3>
+        <input type="email" id="email"  name="email" class="form-control" placeholder="Email address" required autofocus>
+        <input type="password" id=password name="password" class="form-control" placeholder="Password" required>
+        {% if errors %}
+           <span style="color: red;">{{ errors.error }}</span>
+        {% endif %}
+        <div class="checkbox">
+          <label>
+            <input name="remember-me" id="remember-me" class="remember-mecheck"  type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+      </form>
+
+    </div> <!-- /container -->
+
+
+
+{% endblock %}
+
+{% block bottom-js%}
+
+    <script>
+    $(document).ready(function(){
+        if($.cookie("password") != ''){
+              $("#password").val($.cookie("password"));
+        }
+        if($.cookie("name") != ''){
+              $("#email").val($.cookie("name"));
+        }
+        $.ajax({
+            type:"POST",
+            url:"/account/login/",
+            dataType:"json",
+            data: $('#form1').serialize(),
+            success:function (result) {
+                alert("success")
+            }
+        })
+    });
+
+     function check(){
+        //记住我功能使用
+        //写入cookie
+        if ($("#remember-me").prop("checked") == true) {
+            var name = $("#email").val();
+            var password = $("#password").val();
+            //alert(passWord);
+            $.cookie("name", name);
+            var date = new Date();
+            date.setTime(date.getTime()+30*1000);//只能这么写，10表示10秒钟
+            {#$.cookie('loginCount', ++loginCount, {expires: date});#}
+
+            $.cookie("password", password,{ expires: date }); // 存储一个带7天期限的 cookie 如果{ expires: 7 } 不写则cookie只相当回话效果
+        } else {
+            $.cookie("name", "");
+            $.cookie("password", "");
+        }
+    }
+
+
+
+</script>
+
+
+
+
+{% endblock %}
