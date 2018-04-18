@@ -13,6 +13,10 @@
         <li class="active"> {% get_model_name admin_class %}</li>
     </ol>
     {% endblock %}
+
+
+
+
     <div class="panel panel-info">
       <div class="panel-heading">
         <h3 class="panel-title">{% get_model_name admin_class %}
@@ -23,7 +27,24 @@
 
       </div>
       <div class="panel-body">
+         {% if errors %}
+            <div >
+                <h3 style="color: red;">Below errors happened during updating data!</h3>
+                {% for form_errs in errors %}
+
+                    <ul>
+                        <li style="color: red;font-weight: bold">{{ form_errs.1 }}</li>
+                        {% for k,err in form_errs.0.items %}
+                            <li>{{ k }},{{ err }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endfor %}
+            </div>
+            {% endif %}
+
         <div class="row">
+
+
         <form class="" method="get">
             {% for filter_filed in admin_class.list_filters %}
                 <div class="col-lg-2">
@@ -62,9 +83,8 @@
         </div>
 
 
-
-
-        <table class="table table-hover">
+        <div class="table-responsive">
+            <table class="table table-hover">
             <thead>
                 <tr>
                     <th style="width: 35px"><input type="checkbox" onclick="CheckAllToggle(this)"></th>
@@ -73,46 +93,82 @@
                     {% endfor %}
                 </tr>
             </thead>
-            <tfoot>
-                <tr>
-                    <td></td>
-                    <td>总计{{ query_sets.paginator.count }}条</td>
-                </tr>
-            </tfoot>
-            <tbody>
+{#            <tfoot>#}
+{#                <tr>#}
+{#                    <td></td>#}
+{#                    <td>总计{{ query_sets.paginator.count }}条</td>#}
+{#                </tr>#}
+{#            </tfoot>#}
+            <tbody id="model_table_data">
                 {% for obj in query_sets %}
                 <tr>
-                    <td>
-                        <input tag="obj_checkbox" type="checkbox" value="{{ obj.id }}">
-                    </td>
+{#                    <td>#}
+{#                        <input tag="obj_checkbox" type="checkbox" value="{{ obj.id }}">#}
+{#                    </td>#}
                     {% build_table_row request obj admin_class %}
                 </tr>
                 {% endfor %}
             </tbody>
-        </table>
 
-    <nav>
-        <ul class="pagination">
-            {% if query_sets.has_previous %}
+
+              <footer>
+              <tr>
+                    <td colspan="12" class="footable-visible">
+                        <div class="pagination">
+
+                            <nav>
+                                <p>共{{ query_sets.paginator.count }}条数据</p>
+                                <ul class="pagination">
+                                    {% if query_sets.has_previous %}
                 <li class=""><a href="?page={{ query_sets.previous_page_number }}{% build_pag_next query_sets filter_condtions previous_orderby search_text %}">上页</a></li>
             {% endif %}
+                                    {% build_paginators query_sets filter_condtions previous_orderby search_text %}
+                                    {% if query_sets.has_next %}
+                                        <li class=""><a href="?page={{ query_sets.next_page_number }}{% build_pag_next query_sets filter_condtions previous_orderby search_text %}">下页</a></li>
 
-            {% build_paginators query_sets filter_condtions previous_orderby search_text %}
+                                    {% endif %}
+                                </ul>
+                            </nav>
 
-            {% if query_sets.has_next %}
-                <li class=""><a href="?page={{ query_sets.next_page_number }}{% build_pag_next query_sets filter_condtions previous_orderby search_text %}">下页</a></li>
+                        </div>    <!--end pagination-->
+                        {% if admin_class.list_editable %}
+                            <div>
+                                <form method="post" onsubmit="return PrepareFormData(this)">{% csrf_token %}
+                                    <button class="btn btn-info pull-right" >Save</button>
 
-            {% endif %}
+                                </form>
+                            </div>
+                        {% endif %}
+                    </td>
 
-        </ul>
+              </tr>
+            </footer>
+            </table>
 
-    </nav>
 
 
-
+{#        <nav>#}
+{#        <ul class="pagination">#}
+{#            {% if query_sets.has_previous %}#}
+{#                <li class=""><a href="?page={{ query_sets.previous_page_number }}{% build_pag_next query_sets filter_condtions previous_orderby search_text %}">上页</a></li>#}
+{#            {% endif %}#}
+{##}
+{#            {% build_paginators query_sets filter_condtions previous_orderby search_text %}#}
+{##}
+{#            {% if query_sets.has_next %}#}
+{#                <li class=""><a href="?page={{ query_sets.next_page_number }}{% build_pag_next query_sets filter_condtions previous_orderby search_text %}">下页</a></li>#}
+{##}
+{#            {% endif %}#}
+{##}
+{#        </ul>#}
+{##}
+{#    </nav>#}
         </div>
       </div>
     </div>
+
+
+
     <script>
         function CheckAllToggle(ele){
             if ( $(ele).prop("checked")){
@@ -146,7 +202,32 @@
            return true;
        }
 
+        function PrepareFormData(form_ele) {
+            var form_data = [];
+            $("#model_table_data tr").each(function () {
+                var obj_id = $(this).children().first().find("input").val();
 
+                console.log(obj_id);
+                if (obj_id){ //table obj row
+                    var row_data = {};//all columns need to be updated
+                    $(this).find("[data-tag='editable']").each(function () {
+                        //console.log($(this).attr("name") + "----" +$(this).val())
+                        row_data[$(this).attr("name")] = $(this).val();
+                    });//end find each
+                    row_data['id'] = obj_id;
+
+                    form_data.push(row_data);
+                }
+
+            });//end each
+
+            console.log(form_data);
+
+            var ele = '<input type="hidden" name="editable_data" value=' + JSON.stringify(form_data) + ' >';
+            $(form_ele).append(ele);
+
+            return true;
+    }
     </script>
 
 

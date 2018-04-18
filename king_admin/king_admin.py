@@ -58,7 +58,7 @@ class CustomerAdmin(BaseAdmin):
     filter_horizontal = ('tags',)
     # model = models.Customer
     list_per_page = 2
-    list_editable = ('status','source','phone')
+    list_editable = ('source','phone')
     ordering = "qq"
     actions = ["delete_selected_objs", "test"]
     readonly_fields = ["qq", "consultant", "tags"]

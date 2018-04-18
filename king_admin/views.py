@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,Http404
 from king_admin.utils import table_filter,table_search,table_sort
 # Create your views here.
 from king_admin import king_admin
@@ -7,62 +7,115 @@ from king_admin.forms import create_model_form
 from django.contrib.auth.decorators import login_required
 from crm.permissions import permission
 
+import json
+from king_admin import forms
+
 @login_required
 def index(request):
     return render(request,'king_admin/table_index.html',{'table_list':king_admin.enabled_admins})
 
+
+
+def batch_update(request,editable_data,admin_class):
+    errors = []
+    for row_data in editable_data:
+        obj_id = row_data.get('id')
+        try:
+            if obj_id:
+                # print("editable data", row_data, list(row_data.keys()))
+                obj = admin_class.model.objects.get(id=obj_id)
+                print(obj, "很重要obj")
+                print(row_data, '+++++')
+                # print('list(row_data.keys())',list(row_data.keys()))  #['source', 'phone', 'id']
+                model_form = forms.create_model_form(request,admin_class,list(row_data.keys()),partial_update=True)
+                form_obj = model_form(instance=obj,data="")
+                # print(form_obj, "重要的部分--------")
+                if form_obj.is_valid():
+                    form_obj.save()
+                    # print("批量保存成果 ")
+
+                else:
+                    # print("list editable form", row_data,)
+
+                    errors.append([form_obj.errors, obj])
+        except KeyboardInterrupt as e:
+            return False,[e,obj]
+    if errors:
+        # print("错误了啊")
+        return False, errors
+    return True, []
+
+
+
+
+
+
+
+
+
 # @permission.check_permission
 @login_required
 def display_table_objs(request,app_name,table_name):
-    admin_class=king_admin.enabled_admins[app_name][table_name]
+    errors = []
+    if app_name in king_admin.enabled_admins:
+        if table_name in king_admin.enabled_admins[app_name]:
+            admin_class = king_admin.enabled_admins[app_name][table_name]
 
-    if request.method =="POST":#action 来了
-        selected_ids = request.POST.get("selected_ids")
-        action = request.POST.get("action")
-        if selected_ids:
-            selected_objs = admin_class.model.objects.filter(id__in=selected_ids.split(','))
-            print(selected_objs,'selected_objs----------')
-        else:
-            raise KeyError("No object selected")
+            if request.method == "POST":  # action 来了
+                editable_data = request.POST.get("editable_data")
+                if editable_data:  # for list editable
+                    editable_data = json.loads(editable_data)
+                    print("editable", editable_data)
+                    res_state, errors = batch_update(request, editable_data, admin_class)
 
-        if hasattr(admin_class,action):
-            action_func = getattr(admin_class,action)
-            request._admin_action = action
-            print('1先执行',selected_ids)
-            return action_func(admin_class,request,selected_objs) #执行函数 并返回结果
+                else:
+                    selected_ids = request.POST.get("selected_ids")
+                    action = request.POST.get("action")
+                    if selected_ids:
+                        selected_objs = admin_class.model.objects.filter(id__in=selected_ids.split(','))
+                        print(selected_objs, 'selected_objs----------')
+                    else:
+                        raise KeyError("No object selected")
+
+                    if hasattr(admin_class, action):
+                        action_func = getattr(admin_class, action)
+                        request._admin_action = action
+                        # print('1先执行', selected_ids)
+                        return action_func(admin_class, request, selected_objs)  # 执行函数 并返回结果
+
+            object_list, filter_condtions = table_filter(request, admin_class)  # 过滤后的结果
+
+            object_list = table_search(request, admin_class, object_list)
+
+            object_list, orderby_key = table_sort(request, admin_class, object_list)
+
+            paginator = Paginator(object_list, admin_class.list_per_page)
+            page = request.GET.get('page')
+
+            try:
+                query_sets = paginator.page(page)
+            except PageNotAnInteger:
+                # If page is not an integer, deliver first page.
+                query_sets = paginator.page(1)
+            except EmptyPage:
+                # If page is out of range (e.g. 9999), deliver last page of results.
+                query_sets = paginator.page(paginator.num_pages)
+
+            # print('search:',request.GET.get('_q', '')) #22
+            # print('query_sets',query_sets)
+            return render(request, 'king_admin/table_objs.html', {'admin_class': admin_class,
+                                                                  "filter_condtions": filter_condtions,
+                                                                  "search_text": request.GET.get('_q', ''),
+                                                                  "orderby_key": orderby_key,
+                                                                  "query_sets": query_sets,
+                                                                  "previous_orderby": request.GET.get("o", ''),
+                                                                  'app_name': app_name,
+                                                                  "errors":errors
+                                                                  })
+    else:
+        raise Http404("url %s/%s not found" % (app_name, table_name))
 
 
-
-
-    object_list,filter_condtions = table_filter(request,admin_class) #过滤后的结果
-
-    object_list = table_search(request,admin_class,object_list)
-
-    object_list,orderby_key=table_sort(request,admin_class,object_list)
-
-    paginator = Paginator(object_list,admin_class.list_per_page)
-    page =request.GET.get('page')
-
-    try:
-        query_sets = paginator.page(page)
-    except PageNotAnInteger:
-        # If page is not an integer, deliver first page.
-        query_sets = paginator.page(1)
-    except EmptyPage:
-        # If page is out of range (e.g. 9999), deliver last page of results.
-        query_sets = paginator.page(paginator.num_pages)
-
-
-    # print('search:',request.GET.get('_q', '')) #22
-    # print('query_sets',query_sets)
-    return render(request,'king_admin/table_objs.html',{'admin_class':admin_class,
-                                                        "filter_condtions": filter_condtions,
-                                                        "search_text": request.GET.get('_q', ''),
-                                                        "orderby_key": orderby_key,
-                                                        "query_sets":query_sets,
-                                                        "previous_orderby": request.GET.get("o", ''),
-                                                        'app_name':app_name
-                                                        })
 
 
 # @permission.check_permission

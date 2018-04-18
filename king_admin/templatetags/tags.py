@@ -98,7 +98,8 @@ def build_table_header_column(column,orderby_key,filte_condtions,admin_class):#f
 
 @register.simple_tag
 def build_table_row(request,obj,admin_class):
-    row_ele=""
+    row_ele = "<tr>"
+    row_ele += "<td><input type='checkbox' tag='row-check' value='%s' > </td>" % obj.id
     for index,column in enumerate(admin_class.list_display):
         try:
             field_obj = obj._meta.get_field(column)
@@ -109,13 +110,14 @@ def build_table_row(request,obj,admin_class):
             else:
                 column_data = getattr(obj,column)
             if type(column_data).__name__ == 'datetime':
-                column_data = column_data.strftime("%Y-%m-%d %H:%M:%S")
+                column_data = column_data.strftime("%Y-%m-%d")
                 row_ele += "<td style='background-color:#ddd'>%s</td>" % column_data
                 continue
+
             if column in admin_class.list_editable:
                 # print("走到这里",column)
-                column = render_list_editable_column(admin_class, obj, field_obj)
-                print("特殊column",column)
+                column_data = render_list_editable_column(admin_class, obj, field_obj)
+                # print("特殊column",column_data)
             if index == 0:  # add a tag, 可以跳转到修改页
                 column_data = "<a href='{request_path}{obj_id}/change/'>{data}</a>".format(request_path=request.path,obj_id=obj.id,
                                                                                             data=column_data)
@@ -173,7 +175,7 @@ def build_pag_next(query_sets,filter_condtions,previous_orderby,search_text):
 @register.simple_tag
 def render_list_editable_column(admin_class, obj, field_obj):
     # print(admin_class,'admin_class---',obj,'obj-----',field_obj,'field_obj-----')
-    if field_obj.get_internal_type() in("CharField","ForeignKey","BingInterField","IntegerField"):
+    if field_obj.get_internal_type() in("SmallIntegerField","CharField","ForeignKey","BingInterField","IntegerField"):
         column_data = field_obj._get_val_from_obj(obj)
         if not field_obj.choices and field_obj.get_internal_type() != "ForeignKey" :
 
@@ -182,7 +184,7 @@ def render_list_editable_column(admin_class, obj, field_obj):
                      field_obj._get_val_from_obj(obj) or '')
         else:
             column = '''<select data-tag='editable' class='form-control'  name='%s' >''' % field_obj.name
-            print("========",field_obj.get_choices())
+            # print("========",field_obj.get_choices())
             for option in field_obj.get_choices():
                 if option[0] == column_data:
                     selected_attr = "selected"
