@@ -52,12 +52,13 @@ class BaseAdmin(object):
 
 
 class CustomerAdmin(BaseAdmin):
-    list_display = ["id", 'qq', 'name', 'source', 'consultant', 'consult_course', 'date', 'status','enroll']
+    list_display = ["id",'name' ,'phone', 'source', 'consultant', 'consult_course', 'date', 'status','enroll']
     list_filters = ['status','source', 'consultant', 'consult_course', 'date','name']
-    search_fields = ['qq', 'name', "consultant__name"]
+    search_fields = ['qq', 'name']
     filter_horizontal = ('tags',)
     # model = models.Customer
     list_per_page = 2
+    list_editable = ('status','source','phone')
     ordering = "qq"
     actions = ["delete_selected_objs", "test"]
     readonly_fields = ["qq", "consultant", "tags"]
@@ -68,7 +69,7 @@ class CustomerAdmin(BaseAdmin):
     test.display_name  = "测试动作"
 
     def enroll(self):
-        print("enroll",self.instance)
+        # print("enroll",self.instance)
         if self.instance.status == 0:
             link_name='报名新课程'
         else:
@@ -90,11 +91,11 @@ class CustomerAdmin(BaseAdmin):
                        )
 
 
-    def clean_name(self):
-        print("name clean validation:", self.cleaned_data["name"])
-        if not self.cleaned_data["name"]:
-            self.add_error('name', "cannot be null")
-
+    # def clean_name(self):
+    #     print("name clean validation:", self.cleaned_data["name"])
+    #     if not self.cleaned_data["name"]:
+    #         self.add_error('name', "cannot be null")
+    #
 
 
 

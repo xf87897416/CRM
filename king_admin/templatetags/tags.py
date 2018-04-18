@@ -65,6 +65,7 @@ def render_filter_ele(filter_filed,admin_class,filter_condtions): #字典包含�
 @register.simple_tag
 def build_table_header_column(column,orderby_key,filte_condtions,admin_class):#filter coditions {'consult_course': '1', 'status': '0'}
     filters=''
+    # print('test-------',column)
     for k,v in filte_condtions.items():
         filters += "&%s=%s"%(k,v)
 
@@ -109,6 +110,12 @@ def build_table_row(request,obj,admin_class):
                 column_data = getattr(obj,column)
             if type(column_data).__name__ == 'datetime':
                 column_data = column_data.strftime("%Y-%m-%d %H:%M:%S")
+                row_ele += "<td style='background-color:#ddd'>%s</td>" % column_data
+                continue
+            if column in admin_class.list_editable:
+                # print("走到这里",column)
+                column = render_list_editable_column(admin_class, obj, field_obj)
+                print("特殊column",column)
             if index == 0:  # add a tag, 可以跳转到修改页
                 column_data = "<a href='{request_path}{obj_id}/change/'>{data}</a>".format(request_path=request.path,obj_id=obj.id,
                                                                                             data=column_data)
@@ -163,7 +170,40 @@ def build_pag_next(query_sets,filter_condtions,previous_orderby,search_text):
     return mark_safe(page_btn)
 
 
+@register.simple_tag
+def render_list_editable_column(admin_class, obj, field_obj):
+    # print(admin_class,'admin_class---',obj,'obj-----',field_obj,'field_obj-----')
+    if field_obj.get_internal_type() in("CharField","ForeignKey","BingInterField","IntegerField"):
+        column_data = field_obj._get_val_from_obj(obj)
+        if not field_obj.choices and field_obj.get_internal_type() != "ForeignKey" :
 
+            column = '''<input data-tag='editable' type='text' name='%s' value='%s' >''' %\
+                     (field_obj.name,
+                     field_obj._get_val_from_obj(obj) or '')
+        else:
+            column = '''<select data-tag='editable' class='form-control'  name='%s' >''' % field_obj.name
+            print("========",field_obj.get_choices())
+            for option in field_obj.get_choices():
+                if option[0] == column_data:
+                    selected_attr = "selected"
+                else:
+                    selected_attr = ''
+                column += '''<option value='%s' %s >%s</option>''' % (option[0], selected_attr, option[1])
+            column += "</select>"
+    elif field_obj.get_internal_type() == 'BooleanField':
+        column_data = field_obj._get_val_from_obj(obj)
+        if column_data == True:
+            checked = 'checked'
+        else:
+            checked = ''
+        column = '''<input data-tag='editable'   type='checkbox' name='%s' value="%s"  %s> ''' %(field_obj.name,
+                                                                                               column_data,
+                                                                                              checked)
+
+    else:
+        column = field_obj._get_val_from_obj(obj)
+
+    return column
 
 
 

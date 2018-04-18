@@ -15,7 +15,7 @@ class CustomerModelForm(ModelForm):
 def create_model_form(request,admin_class):
     '''动态生成MODEL FORM'''
     def __new__(cls,*args,**kwargs):
-        print('base fields',cls.base_fields)
+        # print('base fields',cls.base_fields)
         for field_name,field_obj in cls.base_fields.items():
             field_obj.widget.attrs['class'] = 'form-control'
 
@@ -39,7 +39,7 @@ def create_model_form(request,admin_class):
                     m2m_vals = [i[0] for i in m2m_objs.values_list('id')]
                     set_m2m_vals = set(m2m_vals)
                     set_m2m_vals_from_frontend = set([i.id for i in self.cleaned_data.get(field)])
-                    print("m2m",m2m_vals,set_m2m_vals_from_frontend)
+                    # print("m2m",m2m_vals,set_m2m_vals_from_frontend)
                     if set_m2m_vals != set_m2m_vals_from_frontend:
                         # error_list.append(ValidationError(
                         #     _('Field %(field)s is readonly'),

@@ -14,7 +14,7 @@
 
 {% block container %}
     change table
-    <div style="margin: 0 auto"><span style="float: right;font-size: 20px"><a href="{% url 'table_objs' app_name table_name %}">返回</a></span></div>
+    <div style="margin: 0 auto"><span style="font-size: 20px"><a href="{% url 'table_objs' app_name table_name %}">返回</a></span></div>
     <form class="form-horizontal" role="form" method="post" onsubmit="return SelectAllChosenData()">{% csrf_token %}
         <span style="color: red">{{ form_obj.errors }}</span>
         {% for field in form_obj %}

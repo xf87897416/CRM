@@ -10,7 +10,7 @@ from django.utils.safestring import mark_safe
 
 class Customer(models.Model):
     '''客户表'''
-    name = models.CharField(max_length=32,blank=True,null=True)
+    name = models.CharField(max_length=32)
     qq = models.CharField(max_length=64,unique=True)
     id_num = models.CharField(max_length=64, blank=True, null=True)
     email = models.EmailField(verbose_name="常用邮箱", blank=True, null=True)

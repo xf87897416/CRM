@@ -24,6 +24,7 @@ def display_table_objs(request,app_name,table_name):
             print(selected_objs,'selected_objs----------')
         else:
             raise KeyError("No object selected")
+
         if hasattr(admin_class,action):
             action_func = getattr(admin_class,action)
             request._admin_action = action
@@ -67,7 +68,7 @@ def display_table_objs(request,app_name,table_name):
 # @permission.check_permission
 @login_required
 def table_obj_change(request,app_name,table_name,obj_id):
-    print('进入了函数')
+    # print('进入了函数')
     admin_class= king_admin.enabled_admins[app_name][table_name]
     model_form_class = create_model_form(request,admin_class)
     # print(model_form_class)
@@ -75,7 +76,9 @@ def table_obj_change(request,app_name,table_name,obj_id):
     obj=admin_class.model.objects.get(id=obj_id)
     if request.method == "POST":
         form_obj = model_form_class(request.POST,instance=obj)#更新操作
+
         if form_obj.is_valid():
+            print("更新成功")
             form_obj.save()
     else:
         form_obj = model_form_class(instance=obj)
