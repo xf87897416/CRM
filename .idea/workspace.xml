@@ -3,11 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="6d811842-7837-4ccb-81ba-12c617af7012" name="Default" comment="修复name bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/crm/forms.py" afterPath="$PROJECT_DIR$/crm/forms.py" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change beforePath="$PROJECT_DIR$/king_admin/forms.py" afterPath="$PROJECT_DIR$/king_admin/forms.py" />
-      <change beforePath="$PROJECT_DIR$/king_admin/king_admin.py" afterPath="$PROJECT_DIR$/king_admin/king_admin.py" />
-      <change beforePath="$PROJECT_DIR$/king_admin/views.py" afterPath="$PROJECT_DIR$/king_admin/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -54,24 +51,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="forms.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="forms.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/king_admin/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="14" column="46" lean-forward="true" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="46" />
+            <state relative-caret-position="152">
+              <caret line="47" column="0" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
               <folding>
                 <element signature="e#65#105#0" expanded="true" />
-                <element signature="e#3709#3770#0" expanded="false" />
+                <element signature="e#665#1393#0" expanded="false" />
+                <element signature="e#3798#3859#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/king_admin/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="219" column="37" lean-forward="true" selection-start-line="219" selection-start-column="37" selection-end-line="219" selection-end-column="37" />
+            <state relative-caret-position="329">
+              <caret line="218" column="58" lean-forward="true" selection-start-line="218" selection-start-column="58" selection-end-line="218" selection-end-column="58" />
               <folding>
                 <element signature="e#479#572#0" expanded="false" />
                 <element signature="e#2641#2793#0" expanded="false" />
@@ -230,8 +228,8 @@
         <option value="$PROJECT_DIR$/templates/king_admin/table_objs.html" />
         <option value="$PROJECT_DIR$/crm/forms.py" />
         <option value="$PROJECT_DIR$/king_admin/king_admin.py" />
-        <option value="$PROJECT_DIR$/king_admin/forms.py" />
         <option value="$PROJECT_DIR$/king_admin/views.py" />
+        <option value="$PROJECT_DIR$/king_admin/forms.py" />
       </list>
     </option>
   </component>
@@ -1002,29 +1000,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/king_admin/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="41" column="13" lean-forward="true" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/king_admin/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="14" column="46" lean-forward="true" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="46" />
-          <folding>
-            <element signature="e#65#105#0" expanded="true" />
-            <element signature="e#3709#3770#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/king_admin/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="219" column="37" lean-forward="true" selection-start-line="219" selection-start-column="37" selection-end-line="219" selection-end-column="37" />
+        <state relative-caret-position="329">
+          <caret line="218" column="58" lean-forward="true" selection-start-line="218" selection-start-column="58" selection-end-line="218" selection-end-column="58" />
           <folding>
             <element signature="e#479#572#0" expanded="false" />
             <element signature="e#2641#2793#0" expanded="false" />
@@ -1041,6 +1020,26 @@
             <element signature="e#10254#10511#0" expanded="false" />
             <element signature="e#10293#10414#0" expanded="false" />
             <element signature="e#10742#10989#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/king_admin/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="41" column="13" lean-forward="true" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/king_admin/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="47" column="0" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <folding>
+            <element signature="e#65#105#0" expanded="true" />
+            <element signature="e#665#1393#0" expanded="false" />
+            <element signature="e#3798#3859#0" expanded="false" />
           </folding>
         </state>
       </provider>

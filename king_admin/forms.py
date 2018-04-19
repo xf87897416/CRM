@@ -50,15 +50,16 @@ def create_model_form(model,fields,admin_class,form_create=False,**kwargs):
                     m2m_objs = getattr(field_val,"select_related")().select_related()
                     m2m_vals = [i[0] for i in m2m_objs.values_list('id')]
                     set_m2m_vals = set(m2m_vals)
-                    set_m2m_vals_from_frontend = set([i.id for i in self.cleaned_data.get(field)])
-                    if set_m2m_vals != set_m2m_vals_from_frontend:
-                        error_list.append(ValidationError(
-                            _('Field %(field)s is readonly'),
-                            code='invalid',
-                            params={'field': field},
-                        ))
-                        self.add_error(field,"readonly field")
-                    continue
+                    if self.cleaned_data.get(field):
+                        set_m2m_vals_from_frontend = set([i.id for i in self.cleaned_data.get(field)])
+                        if set_m2m_vals != set_m2m_vals_from_frontend:
+                            error_list.append(ValidationError(
+                                _('Field %(field)s is readonly'),
+                                code='invalid',
+                                params={'field': field},
+                            ))
+                            self.add_error(field,"readonly field")
+                        continue
                 field_val_from_frontend = self.cleaned_data.get(field)
                 print("filed differ compare:", field_val_from_frontend, field_val)
                 if field_val != field_val_from_frontend:
