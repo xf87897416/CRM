@@ -58,7 +58,7 @@ class CustomerAdmin(BaseAdmin):
     filter_horizontal = ('tags',)
     # model = models.Customer
     list_per_page = 2
-    list_editable = ('source','phone')
+    list_editable = ['source','phone']
     ordering = "qq"
     actions = ["delete_selected_objs", "test"]
     readonly_fields = ["qq", "consultant", "tags"]
@@ -78,17 +78,17 @@ class CustomerAdmin(BaseAdmin):
     enroll.display_name = "报名链接"
 
 
-    def default_form_validation(self):
-        #print("-----customer validation ",self)
-        #print("----instance:",self.instance)
-
-        consult_content =self.cleaned_data.get("content",'')
-        if len(consult_content) <15:
-            return self.ValidationError(
-                            ('Field %(field)s 咨询内容记录不能少于15个字符'),
-                            code='invalid',
-                            params={'field': "content",},
-                       )
+    # def default_form_validation(self):
+    #     #print("-----customer validation ",self)
+    #     #print("----instance:",self.instance)
+    #
+    #     consult_content =self.cleaned_data.get("content",'')
+    #     if len(consult_content) <15:
+    #         return self.ValidationError(
+    #                         ('Field %(field)s 咨询内容记录不能少于15个字符'),
+    #                         code='invalid',
+    #                         params={'field': "content",},
+    #                    )
 
 
     # def clean_name(self):

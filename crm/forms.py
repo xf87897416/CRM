@@ -22,6 +22,17 @@ class EnrollmentForm(ModelForm):
 
 
 class CustomerForm(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(CustomerForm, self).__init__(*args, **kwargs)
+        for field_name in self.base_fields:
+            field = self.base_fields[field_name]
+            field.widget.attrs.update({'class': 'form-control'})
+            if field_name in CustomerForm.Meta.readonly_fields:
+                field.widget.attrs.update({'disabled': 'disabled'})
+
+                #print("required:",field.required)
+
+
     def __new__(cls, *args, **kwargs):
         for field_name,field_obj in cls.base_fields.items():
             field_obj.widget.attrs['class'] = 'form-control'
@@ -37,10 +48,8 @@ class CustomerForm(ModelForm):
 
     class Meta:
         model = models.Customer
-        fields = "__all__"
-        exclude = ['tags','content','memo','status','referral_from','consult_course']
-
-        readonly_fields = [ 'qq','consultant','source']
+        exclude = ()
+        readonly_fields = [ 'qq','consultant']
         # readonly_fields = [ ]
 
 

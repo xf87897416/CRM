@@ -24,11 +24,11 @@ def batch_update(request,editable_data,admin_class):
             if obj_id:
                 # print("editable data", row_data, list(row_data.keys()))
                 obj = admin_class.model.objects.get(id=obj_id)
-                print(obj, "很重要obj")
+                # print(obj, "很重要obj")
                 print(row_data, '+++++')
                 # print('list(row_data.keys())',list(row_data.keys()))  #['source', 'phone', 'id']
-                model_form = forms.create_model_form(request,admin_class,list(row_data.keys()),partial_update=True)
-                form_obj = model_form(instance=obj,data="")
+                model_form = forms.create_model_form(admin_class.model,list(row_data.keys()),admin_class,request=request,partial_update=True)
+                form_obj = model_form(instance=obj,data=row_data)
                 # print(form_obj, "重要的部分--------")
                 if form_obj.is_valid():
                     form_obj.save()
@@ -85,9 +85,9 @@ def display_table_objs(request,app_name,table_name):
 
             object_list, filter_condtions = table_filter(request, admin_class)  # 过滤后的结果
 
-            object_list = table_search(request, admin_class, object_list)
+            object_list = table_search(request, admin_class, object_list)  #搜索后的结果
 
-            object_list, orderby_key = table_sort(request, admin_class, object_list)
+            object_list, orderby_key = table_sort(request, admin_class, object_list)  #排序后的结果
 
             paginator = Paginator(object_list, admin_class.list_per_page)
             page = request.GET.get('page')
@@ -122,24 +122,37 @@ def display_table_objs(request,app_name,table_name):
 @login_required
 def table_obj_change(request,app_name,table_name,obj_id):
     # print('进入了函数')
-    admin_class= king_admin.enabled_admins[app_name][table_name]
-    model_form_class = create_model_form(request,admin_class)
-    # print(model_form_class)
+    if app_name in king_admin.enabled_admins:
+        if table_name in king_admin.enabled_admins[app_name]:
+            admin_class=king_admin.enabled_admins[app_name][table_name]
+            fields = []
+            for field_obj in admin_class.model._meta.fields:
+                if field_obj.editable:
+                    fields.append(field_obj.name)
 
-    obj=admin_class.model.objects.get(id=obj_id)
-    if request.method == "POST":
-        form_obj = model_form_class(request.POST,instance=obj)#更新操作
+            for field_obj in admin_class.model._meta.many_to_many:
+                fields.append(field_obj.name)
+            admin_class= king_admin.enabled_admins[app_name][table_name]
+            model_form_class = create_model_form(admin_class.model,fields,admin_class,request=request)
+            # print(model_form_class)
 
-        if form_obj.is_valid():
-            print("更新成功")
-            form_obj.save()
+            obj=admin_class.model.objects.get(id=obj_id)
+            if request.method == "GET":
+                form_obj = model_form_class(instance=obj)
+            elif request.method == "POST":
+                form_obj = model_form_class(request.POST,instance=obj)#更新操作
+                if form_obj.is_valid():
+                    print("更新成功")
+                    form_obj.save()
+            else:
+                form_obj = model_form_class(instance=obj)
+            # print(form_obj,'is --------')
+            return render(request,'king_admin/table_obj_change.html',{'form_obj':form_obj,
+                                                                      'admin_class':admin_class,
+                                                                      'app_name':app_name,
+                                                                      'table_name':table_name})
     else:
-        form_obj = model_form_class(instance=obj)
-    # print(form_obj,'is --------')
-    return render(request,'king_admin/table_obj_change.html',{'form_obj':form_obj,
-                                                              'admin_class':admin_class,
-                                                              'app_name':app_name,
-                                                              'table_name':table_name})
+        raise Http404("url %s/%s not found" % (app_name, table_name))
 
 @login_required
 def table_obj_delete(request,app_name,table_name,obj_id):
@@ -166,32 +179,48 @@ def table_obj_delete(request,app_name,table_name,obj_id):
 
 @login_required
 def table_obj_add(request,app_name,table_name):
+    if app_name in king_admin.enabled_admins:
+        if table_name in king_admin.enabled_admins[app_name]:
+            fields=[]
+            admin_class = king_admin.enabled_admins[app_name][table_name]
+            for field_obj in admin_class.model._meta.fields:
+                if field_obj.editable:
+                    fields.append(field_obj.name)
+            for field_obj in admin_class.model._meta.many_to_many:
+                fields.append(field_obj.name)
 
-    admin_class = king_admin.enabled_admins[app_name][table_name]
-    admin_class.is_add_form = True
-    model_form_class = create_model_form(request,admin_class)
+            admin_class.is_add_form = True
+            model_form_class = create_model_form(admin_class.model,fields,admin_class,form_create=True,request=request)
 
-    if request.method == "POST":
-        form_obj = model_form_class(request.POST)  #
-        if form_obj.is_valid():
-            form_obj.save()
+            if request.method == "POST":
+                form_obj = model_form_class(request.POST)  #
+                if form_obj.is_valid():
+                    form_obj.save()
 
-            return  redirect(request.path.replace("/add/","/"))
+                    return  redirect(request.path.replace("/add/","/"))
+            else:
+                form_obj = model_form_class()
+
+            # print('form_obj:',form_obj,'admin_class',admin_class)
+            return render(request, "king_admin/table_obj_add.html", {"form_obj": form_obj,
+                                                                     "admin_class": admin_class,
+                                                                     'app_name':app_name,
+                                                                     'table_name':table_name,
+                                                                     })
     else:
-        form_obj = model_form_class()
-
-    # print('form_obj:',form_obj,'admin_class',admin_class)
-    return render(request, "king_admin/table_obj_add.html", {"form_obj": form_obj,
-                                                             "admin_class": admin_class,
-                                                             'app_name':app_name,
-                                                             'table_name':table_name,
-                                                             })
-
+        raise Http404("url %s/%s not found" % (app_name,table_name))
 @login_required
 def password_reset(request,app_name,table_name,obj_id):
+    fields = []
+    admin_class = king_admin.enabled_admins[app_name][table_name]
+    for field_obj in admin_class.model._meta.fields:
+        if field_obj.editable:
+            fields.append(field_obj.name)
+    for field_obj in admin_class.model._meta.many_to_many:
+        fields.append(field_obj.name)
 
     admin_class = king_admin.enabled_admins[app_name][table_name]
-    model_form_class = create_model_form(request,admin_class)
+    model_form_class = create_model_form(admin_class.model,fields,admin_class,request=request)
 
     obj = admin_class.model.objects.get(id=obj_id)
     errors = {}

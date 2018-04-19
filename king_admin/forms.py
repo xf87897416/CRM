@@ -7,18 +7,21 @@ from crm import models
 from django.forms import ValidationError
 from django.utils.translation import ugettext as _
 
-class CustomerModelForm(ModelForm):
-    class Meta:
-        models = models.Customer
-        fields = '__all__'
+# class CustomerModelForm(ModelForm):
+#     class Meta:
+#         models = models.Customer
+#         # fields = '__all__'
 
-def create_model_form(request,admin_class,fields='__all__',form_create=False,**kwargs):
+def create_model_form(model,fields,admin_class,form_create=False,**kwargs):
     '''动态生成MODEL FORM'''
     def __new__(cls,*args,**kwargs):
+        # print(cls.base_fields, "重中之重+++++++++++++++++++=")
         # print('base fields',cls.base_fields)
+
         for field_name,field_obj in cls.base_fields.items():
             field_obj.widget.attrs['class'] = 'form-control'
-
+            # field = cls.base_fields[field_name]
+            # print("field",fields)
             if not hasattr(admin_class,'is_add_form'): #代表这是添加form,不需要disabled
                 if field_name in admin_class.readonly_fields:
                     field_obj.widget.attrs['disabled']='disabled'
@@ -35,6 +38,7 @@ def create_model_form(request,admin_class,fields='__all__',form_create=False,**k
         return ModelForm.__new__(cls)
 
     def default_clean(self):
+        # print('=========',self.base_fields)
         print("cleaned_data:", self.cleaned_data)
         error_list=[]
         if self.instance.id:# 这是个修改的表单
@@ -42,21 +46,21 @@ def create_model_form(request,admin_class,fields='__all__',form_create=False,**k
 
                 field_val = getattr(self.instance,field)  #val in db
 
-                # if hasattr(field_val,"select_related"): #m2m
-                #     m2m_objs = getattr(field_val,"select_related")().select_related()
-                #     m2m_vals = [i[0] for i in m2m_objs.values_list('id')]
-                #     set_m2m_vals = set(m2m_vals)
-                #     set_m2m_vals_from_frontend = set([i.id for i in self.cleaned_data.get(field)])
-                #     if set_m2m_vals != set_m2m_vals_from_frontend:
-                #         # error_list.append(ValidationError(
-                #         #     _('Field %(field)s is readonly'),
-                #         #     code='invalid',
-                #         #     params={'field': field},
-                #         # ))
-                #         self.add_error(field,"readonly field")
-                #     continue
+                if hasattr(field_val,"select_related"): #m2m
+                    m2m_objs = getattr(field_val,"select_related")().select_related()
+                    m2m_vals = [i[0] for i in m2m_objs.values_list('id')]
+                    set_m2m_vals = set(m2m_vals)
+                    set_m2m_vals_from_frontend = set([i.id for i in self.cleaned_data.get(field)])
+                    if set_m2m_vals != set_m2m_vals_from_frontend:
+                        error_list.append(ValidationError(
+                            _('Field %(field)s is readonly'),
+                            code='invalid',
+                            params={'field': field},
+                        ))
+                        self.add_error(field,"readonly field")
+                    continue
                 field_val_from_frontend = self.cleaned_data.get(field)
-                # print("filed differ compare:", field_val_from_frontend, field_val)
+                print("filed differ compare:", field_val_from_frontend, field_val)
                 if field_val != field_val_from_frontend:
                     if self.Meta.partial_update:
                         if field not in self.cleaned_data:
@@ -81,17 +85,18 @@ def create_model_form(request,admin_class,fields='__all__',form_create=False,**k
             raise  ValidationError(error_list)
 
     class Meta:
-        model = admin_class.model
-        exclude = admin_class.modelform_exclude_fields
-    attrs = {'Meta':Meta}
-    _model_from_class = type("DynamicModelForm",(ModelForm,),attrs)
-    setattr(_model_from_class,'__new__',__new__)
-    setattr(_model_from_class,'clean',default_clean)
+        pass
+        # exclude = admin_class.modelform_exclude_fields
+    setattr(Meta, 'model', model)
     setattr(Meta, 'form_create', form_create)
     setattr(Meta, 'fields', fields)
     setattr(Meta, 'partial_update', kwargs.get("partial_update"))
-    if request: #for form validator
-        setattr(_model_from_class,'_request',request)
+    attrs = {'Meta': Meta}
+    _model_from_class = type("DynamicModelForm",(ModelForm,),attrs)
+    setattr(_model_from_class, '__new__', __new__)
+    setattr(_model_from_class, 'clean', default_clean)
+    if kwargs.get("request"):  # for form validator
+        setattr(_model_from_class, '_request', kwargs.get("request"))
         print("不知道这句话有什么用")
     return _model_from_class
 
