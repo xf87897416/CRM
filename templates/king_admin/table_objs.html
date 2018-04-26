@@ -42,28 +42,31 @@
             </div>
             {% endif %}
 
-        <div class="row">
-
 
         <form class="" method="get">
-            {% for filter_filed in admin_class.list_filters %}
-                <div class="col-lg-2">
-                <span>{{ filter_filed }}</span>
-                {% render_filter_ele filter_filed admin_class filter_condtions  %}
-                </div>
-            {% endfor %}
-                <button type="SUBMIT" class="btn btn-success">检索</button>
-            <hr>
             <div class="row">
-                <div class="col-lg-3">
+            {% for filter_filed in admin_class.list_filters %}
+                <div class="col-md-2">
+                    <span>{{ filter_filed }}</span>
+                    {% render_filter_ele filter_filed admin_class filter_condtions  %}
+                </div>
+
+            {% endfor %}
+
+                <button type="SUBMIT" class="btn btn-success">检索</button>
+
+            <hr>
+
+                <div class="col-md-3">
                     <input type="search" style="margin-left:15px" name="_q" class="form-control"  value="{{ search_text }}" placeholder="search by {% for search_field in admin_class.search_fields %}{{ search_field }},{% endfor %} ">
                 </div>
-                <div class="col-lg-2"　>
+                <div class="col-md-2">
                         <button type="SUBMIT" class="btn btn-success">search</button>
                 </div>
-            </div>
 
+            </div>
         </form>
+        </div>
 
         <div class="row" style="margin-top: 10px">
             <form onsubmit="ActionSubmit(this)" method="POST">{% csrf_token %}
@@ -164,7 +167,7 @@
 {##}
 {#    </nav>#}
         </div>
-      </div>
+
     </div>
 
 

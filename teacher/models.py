@@ -8,3 +8,18 @@ class teacherinfo(models.Model):
     age = models.SmallIntegerField()
     def __str__(self):
         return  "<%s %s>"%(self.name,self.age)
+
+    class Meta:
+        verbose_name_plural = '老师信息'
+        verbose_name='老师信息'
+
+
+
+
+
+
+
+
+
+
+

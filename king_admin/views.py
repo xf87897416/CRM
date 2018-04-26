@@ -8,7 +8,10 @@ from django.contrib.auth.decorators import login_required
 from crm.permissions import permission
 
 import json
-from king_admin import forms
+from king_admin import forms,pizza_done
+
+
+
 
 @login_required
 def index(request):
@@ -143,6 +146,7 @@ def table_obj_change(request,app_name,table_name,obj_id):
                 form_obj = model_form_class(request.POST,instance=obj)#更新操作
                 if form_obj.is_valid():
                     print("更新成功")
+                    pizza_done.send(sender='已更新', toppings=obj, size=form_obj.cleaned_data)
                     form_obj.save()
             else:
                 form_obj = model_form_class(instance=obj)

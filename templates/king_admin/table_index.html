@@ -43,21 +43,22 @@
                 </ol>
             {% endblock %}
 
-            <div class="panel-body">
+            <div class="panel-body row">
 {#                {{ table_list }}#}
                 {% for app_name,app_tables in table_list.items %}
                     <table class="table table-hover">
                         <thead>
                             <tr>
                                 <th >
-                                    <a href="{% url 'app_tables' app_name %}">{{ app_name|upper }}</a></th>
+                                     <a href="{% url 'app_tables' app_name %}">{{ app_name|upper }}</a>
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
                             {% for table_name,admin in app_tables.items %}
                                 <tr>
                                     <td>
-                                        <a href="{% url 'table_objs' app_name table_name %}">
+                                        <a  href="{% url 'table_objs' app_name table_name %}">
                                             {% render_app_name admin%}
                                         </a>
 
