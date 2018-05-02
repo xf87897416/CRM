@@ -52,8 +52,10 @@ def get_course_ranking(class_grade_dic):
     '''返回整个班级的排名数据'''
     ranking_dic = {}
     ranking_list = sorted(class_grade_dic.items(),key=lambda x:x[1])
+    print(ranking_list,"=====ranking_list")
     for item in ranking_list:
         ranking_dic[item[0]] = [item[1], ranking_list.index(item)+1]
+    print(ranking_dic,'ranking_dic')
     return ranking_dic
 
 
@@ -62,7 +64,9 @@ def get_stu_grade_ranking(course_ranking_dic,enroll_obj):
     '''返回这个学员在本班的成绩排名'''
 
     score = course_ranking_dic.get(enroll_obj.customer.id)
+    # print('score不存在', score)
     if score:
+        # print('score存在',score)
         return score[1]
 
 

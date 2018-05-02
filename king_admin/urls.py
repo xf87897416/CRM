@@ -10,4 +10,5 @@ urlpatterns = [
     url(r'^(\w+)/(\w+)/(\d+)/delete/$',views.table_obj_delete,name='obj_delete'),
     url(r'^(\w+)/(\w+)/add/$', views.table_obj_add,name="table_obj_add"),
     url(r'^(\w+)/$', views.app_tables, name="app_tables"),
+
 ]

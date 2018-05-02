@@ -175,16 +175,16 @@
     <script>
         function CheckAllToggle(ele){
             if ( $(ele).prop("checked")){
-                $("input[tag='obj_checkbox']").prop("checked",true);
+                $("input[tag='row-check']").prop("checked",true);
             }else {
-                $("input[tag='obj_checkbox']").prop("checked",false);
+                $("input[tag='row-check']").prop("checked",false);
             }
         }
 
 
         function ActionSubmit(form_ele) {
            var selected_ids = [];
-           $("input[tag='obj_checkbox']:checked").each(function () {
+           $("input[tag='row-check']:checked").each(function () {
                selected_ids.push($(this).val());
            })
            var selected_action = $("#action_list").val();

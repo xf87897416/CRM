@@ -49,7 +49,7 @@
                             <td>
                                 <a class="btn-link" href="{% url 'view_class_stu_list'  class_obj.id  %}">{{ class_obj.enrollment_set.select_related.count }}</a>
                             </td>
-                            <td><a class="btn-link" href="/king_admin/crm/courserecord/?from_class={{ class_obj.id }}">上课纪录b </a></td>
+                            <td><a class="btn-link" href="/king_admin/crm/courserecord/?from_class={{ class_obj.id }}">上课纪录</a></td>
                         </tr>
                         {% endfor %}
 
