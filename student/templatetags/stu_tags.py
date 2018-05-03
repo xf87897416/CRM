@@ -44,14 +44,16 @@ def get_course_grades(class_obj):
     # print("运行到这里")
 
     return dict(models.StudyRecord.objects.filter(course_record__from_class=class_obj).\
-                values_list('student').annotate(Sum('score')) )
+                values_list('student').annotate(Sum('score')))
 
 
 @register.simple_tag
 def get_course_ranking(class_grade_dic):
     '''返回整个班级的排名数据'''
     ranking_dic = {}
-    ranking_list = sorted(class_grade_dic.items(),key=lambda x:x[1])
+    ranking_list = sorted(class_grade_dic.items(),key=lambda x:x[1],reverse = True)
+
+    print(class_grade_dic,'++++')
     print(ranking_list,"=====ranking_list")
     for item in ranking_list:
         ranking_dic[item[0]] = [item[1], ranking_list.index(item)+1]
@@ -62,8 +64,8 @@ def get_course_ranking(class_grade_dic):
 @register.simple_tag
 def get_stu_grade_ranking(course_ranking_dic,enroll_obj):
     '''返回这个学员在本班的成绩排名'''
-
-    score = course_ranking_dic.get(enroll_obj.customer.id)
+    print("enro_obj",enroll_obj.customer.id)
+    score = course_ranking_dic.get(enroll_obj.id)
     # print('score不存在', score)
     if score:
         # print('score存在',score)
@@ -77,8 +79,10 @@ def fetch_stu_course_score(class_grade_dic, enroll_obj ):
 
 @register.simple_tag
 def get_greade(enroll_obj,class_ojb):
-    study=models.StudyRecord.objects.get(student_id=enroll_obj.id).score
-
+    try:
+        study=models.StudyRecord.objects.get(student_id=enroll_obj.id).score
+        return study
+    except :
+        pass
+    return ''
     # print(study)
-
-    return study

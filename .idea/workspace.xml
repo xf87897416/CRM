@@ -2,13 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d811842-7837-4ccb-81ba-12c617af7012" name="Default" comment="修复name bug">
+      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/09652008-19a0-45e4-a458-335df863f14c.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d1cb6210-3043-4747-b31d-976952217090.xml" afterPath="" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/crm/templatetags/crm_tags.py" afterPath="$PROJECT_DIR$/crm/templatetags/crm_tags.py" />
+      <change beforePath="$PROJECT_DIR$/crm/views.py" afterPath="$PROJECT_DIR$/crm/views.py" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change beforePath="$PROJECT_DIR$/king_admin/urls.py" afterPath="$PROJECT_DIR$/king_admin/urls.py" />
       <change beforePath="$PROJECT_DIR$/student/templatetags/stu_tags.py" afterPath="$PROJECT_DIR$/student/templatetags/stu_tags.py" />
-      <change beforePath="$PROJECT_DIR$/templates/begin.html" afterPath="$PROJECT_DIR$/templates/begin.html" />
-      <change beforePath="$PROJECT_DIR$/templates/king_admin/table_objs.html" afterPath="$PROJECT_DIR$/templates/king_admin/table_objs.html" />
-      <change beforePath="$PROJECT_DIR$/templates/teacher/my_students.html" afterPath="$PROJECT_DIR$/templates/teacher/my_students.html" />
+      <change beforePath="$PROJECT_DIR$/templates/student/homework_detail.html" afterPath="$PROJECT_DIR$/templates/student/homework_detail.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -56,112 +60,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="class_stu_list.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/teacher/class_stu_list.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="131">
-              <caret line="37" column="37" lean-forward="false" selection-start-line="37" selection-start-column="37" selection-end-line="37" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="stu_tags.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/student/templatetags/stu_tags.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="57" column="36" lean-forward="false" selection-start-line="57" selection-start-column="36" selection-end-line="57" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="0001_initial.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/crm/migrations/0001_initial.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="100" column="48" lean-forward="false" selection-start-line="100" selection-start-column="48" selection-end-line="100" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/king_admin/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="6" column="41" lean-forward="false" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/king_admin/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
-              <caret line="108" column="53" lean-forward="false" selection-start-line="108" selection-start-column="53" selection-end-line="108" selection-end-column="53" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="table_objs.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/king_admin/table_objs.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="417">
-              <caret line="134" column="0" lean-forward="false" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
-              <folding>
-                <element signature="n#block#1;n#!!top" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="king_admin.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/king_admin/king_admin.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="447">
-              <caret line="99" column="0" lean-forward="true" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
-              <folding>
-                <element signature="n#!!doc" expanded="false" />
-                <element signature="e#233#1991#0" expanded="false" />
-                <element signature="e#574#1884#0" expanded="false" />
-                <element signature="e#951#1087#0" expanded="false" />
-                <element signature="e#1283#1883#0" expanded="false" />
-                <element signature="e#1933#1991#0" expanded="false" />
-                <element signature="e#2506#2529#0" expanded="false" />
-                <element signature="e#2602#2619#0" expanded="false" />
-                <element signature="e#2963#2999#0" expanded="false" />
-                <element signature="e#3702#3749#0" expanded="false" />
-                <element signature="e#3751#3787#0" expanded="false" />
-                <element signature="e#3865#4035#0" expanded="false" />
-                <element signature="e#4584#5009#0" expanded="false" />
-                <element signature="e#4584#4627#0" expanded="false" />
-                <element signature="e#5462#5633#0" expanded="false" />
-                <element signature="e#5672#5701#0" expanded="false" />
-                <element signature="e#5769#6013#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/teacher/urls.py">
+        <entry file="file://$PROJECT_DIR$/student/urls.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="132">
-              <caret line="7" column="57" lean-forward="false" selection-start-line="7" selection-start-column="57" selection-end-line="7" selection-end-column="57" />
+              <caret line="7" column="49" lean-forward="true" selection-start-line="7" selection-start-column="49" selection-end-line="7" selection-end-column="49" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/teacher/views.py">
+        <entry file="file://$PROJECT_DIR$/student/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
-              <caret line="27" column="44" lean-forward="false" selection-start-line="27" selection-start-column="44" selection-end-line="27" selection-end-column="44" />
+            <state relative-caret-position="351">
+              <caret line="51" column="48" lean-forward="true" selection-start-line="51" selection-start-column="48" selection-end-line="51" selection-end-column="48" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="homework_detail.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/student/homework_detail.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="88">
+              <caret line="4" column="33" lean-forward="true" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
+              <folding>
+                <element signature="e#401#436#0#HTML" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -178,11 +104,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>No object selected</find>
-      <find>model_table_data</find>
-      <find>editable_data</find>
-      <find>list editable</find>
-      <find>data=</find>
       <find>delete_selec</find>
       <find>base_fields</find>
       <find>exclude</find>
@@ -208,6 +129,11 @@
       <find>no obje</find>
       <find>已报名</find>
       <find>报名链接</find>
+      <find>__</find>
+      <find>8000</find>
+      <find>course</find>
+      <find>template</find>
+      <find>try</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -228,25 +154,21 @@
         <option value="$PROJECT_DIR$/templates/king_admin/table_obj_delete.html" />
         <option value="$PROJECT_DIR$/templates/king_admin/password_reset.html" />
         <option value="$PROJECT_DIR$/templates/sales/enrollment.html" />
-        <option value="$PROJECT_DIR$/crm/templatetags/crm_tags.py" />
         <option value="$PROJECT_DIR$/templates/sales/contract_review.html" />
         <option value="$PROJECT_DIR$/crm/urls.py" />
         <option value="$PROJECT_DIR$/templates/king_admin/testlogin.html" />
         <option value="$PROJECT_DIR$/templates/student/my_classes.html" />
         <option value="$PROJECT_DIR$/student/urls.py" />
         <option value="$PROJECT_DIR$/templates/sales/stu_registration.html" />
-        <option value="$PROJECT_DIR$/templates/student/homework_detail.html" />
         <option value="$PROJECT_DIR$/student/views.py" />
         <option value="$PROJECT_DIR$/templates/student/studyrecords.html" />
         <option value="$PROJECT_DIR$/templates/teacher/class_stu.html" />
         <option value="$PROJECT_DIR$/teacher/urls.py" />
         <option value="$PROJECT_DIR$/teacher/views.py" />
-        <option value="$PROJECT_DIR$/templates/teacher/class_stu_list.html" />
         <option value="$PROJECT_DIR$/king_admin/utils.py" />
         <option value="$PROJECT_DIR$/自动登录.html" />
         <option value="$PROJECT_DIR$/MyperfectCRM/settings.py" />
         <option value="$PROJECT_DIR$/密码.py" />
-        <option value="$PROJECT_DIR$/crm/views.py" />
         <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/MyperfectCRM/urls.py" />
         <option value="$PROJECT_DIR$/student/models.py" />
@@ -274,7 +196,11 @@
         <option value="$PROJECT_DIR$/templates/teacher/my_students.html" />
         <option value="$PROJECT_DIR$/king_admin/templatetags/tags.py" />
         <option value="$PROJECT_DIR$/templates/king_admin/table_objs.html" />
+        <option value="$PROJECT_DIR$/crm/views.py" />
+        <option value="$PROJECT_DIR$/crm/templatetags/crm_tags.py" />
+        <option value="$PROJECT_DIR$/templates/teacher/class_stu_list.html" />
         <option value="$PROJECT_DIR$/student/templatetags/stu_tags.py" />
+        <option value="$PROJECT_DIR$/templates/student/homework_detail.html" />
       </list>
     </option>
   </component>
@@ -285,9 +211,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="593" />
+    <option name="x" value="587" />
+    <option name="y" value="2" />
     <option name="width" value="1334" />
-    <option name="height" value="1040" />
+    <option name="height" value="1041" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -323,7 +250,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -335,16 +261,22 @@
             <path>
               <item name="MyperfectCRM-20180416" type="b2602c69:ProjectViewProjectNode" />
               <item name="MyperfectCRM-20180416" type="462c0819:PsiDirectoryNode" />
-              <item name="king_admin" type="462c0819:PsiDirectoryNode" />
+              <item name="homeworks" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MyperfectCRM-20180416" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyperfectCRM-20180416" type="462c0819:PsiDirectoryNode" />
+              <item name="student" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="F:/PerfectCRM-master" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
@@ -524,29 +456,29 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="593" y="0" width="1334" height="1040" extended-state="1" />
+    <frame x="587" y="2" width="1334" height="1041" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32918552" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27149323" sideWeight="0.50998" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27149323" sideWeight="0.49001995" order="11" side_tool="false" content_ui="tabs" x="6" y="480" width="974" height="305" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32918552" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32918552" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3717514" sideWeight="0.49001995" order="11" side_tool="false" content_ui="tabs" x="6" y="480" width="974" height="305" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32126698" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1821036" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18367347" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37510878" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3744113" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283433" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24974722" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39932126" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39932126" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -561,10 +493,10 @@
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32918552" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32126698" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18463074" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1821036" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3752495" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3744113" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283433" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24974722" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -590,118 +522,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/4aa66a52-ffc0-4da7-9f2b-d6b7a470db58/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/e0454f61-3ba5-4fe6-88b2-3fccdaf6e9cb/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db.sqlite3.baiduyun.uploading.cfg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/e9ec3c38-4084-495a-a40e-bcc17b4880b7/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/crm/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="28" lean-forward="true" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/77a220bc-6796-4cf3-b1ed-f912ce10c6ca/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/539742d6/09652008-19a0-45e4-a458-335df863f14c/main.crm_userprofile">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="36" column="9" lean-forward="true" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="19" lean-forward="false" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/crm/templatetags/crm_tags.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/crm/migrations/0010_auto_20180417_1712.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="17" column="30" lean-forward="true" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/king_admin/table_obj_delete.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="22" lean-forward="true" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/crm/permissions/permission_list.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://F:/python安装目录/Lib/site-packages/django/forms/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="54" column="18" lean-forward="false" selection-start-line="54" selection-start-column="18" selection-end-line="54" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/539742d6/09652008-19a0-45e4-a458-335df863f14c/main.crm_customer">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://F:/python安装目录/Lib/site-packages/django/forms/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="205">
@@ -748,16 +568,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
           <caret line="34" column="41" lean-forward="false" selection-start-line="34" selection-start-column="41" selection-end-line="34" selection-end-column="41" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-            <element signature="e#140#607#0" expanded="false" />
-            <element signature="e#262#393#0" expanded="false" />
-            <element signature="e#454#607#0" expanded="false" />
-            <element signature="e#665#1025#0" expanded="false" />
-            <element signature="e#859#873#0" expanded="false" />
-            <element signature="e#1075#1370#0" expanded="false" />
-            <element signature="e#1139#1316#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -780,14 +590,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="249">
           <caret line="68" column="37" lean-forward="false" selection-start-line="68" selection-start-column="37" selection-end-line="68" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MyperfectCRM/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="19" column="22" lean-forward="false" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -817,10 +619,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
           <caret line="14" column="75" lean-forward="false" selection-start-line="14" selection-start-column="75" selection-end-line="14" selection-end-column="75" />
-          <folding>
-            <element signature="e#425#4421#0" expanded="false" />
-            <element signature="e#1472#3772#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -828,7 +626,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="66">
           <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -836,90 +633,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/crm/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="118" column="24" lean-forward="true" selection-start-line="118" selection-start-column="24" selection-end-line="118" selection-end-column="24" />
-          <folding>
-            <element signature="e#826#1802#0" expanded="false" />
-            <element signature="e#1121#1182#0" expanded="false" />
-            <element signature="e#1223#1529#0" expanded="false" />
-            <element signature="e#1572#1802#0" expanded="false" />
-            <element signature="e#1848#2441#0" expanded="false" />
-            <element signature="e#2487#3517#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/crm/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="282" column="42" lean-forward="true" selection-start-line="282" selection-start-column="42" selection-end-line="282" selection-end-column="42" />
-          <folding>
-            <element signature="e#336#1641#0" expanded="false" />
-            <element signature="e#745#875#0" expanded="false" />
-            <element signature="e#1232#1260#0" expanded="false" />
-            <element signature="e#1526#1562#0" expanded="false" />
-            <element signature="e#1587#1641#0" expanded="false" />
-            <element signature="e#1673#1848#0" expanded="false" />
-            <element signature="e#1754#1770#0" expanded="false" />
-            <element signature="e#1796#1848#0" expanded="false" />
-            <element signature="e#1892#2506#0" expanded="false" />
-            <element signature="e#2091#2216#0" expanded="false" />
-            <element signature="e#2371#2418#0" expanded="false" />
-            <element signature="e#2444#2506#0" expanded="false" />
-            <element signature="e#2540#2880#0" expanded="false" />
-            <element signature="e#2784#2800#0" expanded="false" />
-            <element signature="e#2825#2880#0" expanded="false" />
-            <element signature="e#2914#3132#0" expanded="false" />
-            <element signature="e#3038#3054#0" expanded="false" />
-            <element signature="e#3079#3132#0" expanded="false" />
-            <element signature="e#3169#4018#0" expanded="false" />
-            <element signature="e#3313#3369#0" expanded="false" />
-            <element signature="e#3823#3881#0" expanded="false" />
-            <element signature="e#3907#4018#0" expanded="false" />
-            <element signature="e#4059#4757#0" expanded="false" />
-            <element signature="e#4576#4621#0" expanded="false" />
-            <element signature="e#4647#4757#0" expanded="false" />
-            <element signature="e#4797#5752#0" expanded="false" />
-            <element signature="e#4949#5017#0" expanded="false" />
-            <element signature="e#5134#5347#0" expanded="false" />
-            <element signature="e#5553#5615#0" expanded="false" />
-            <element signature="e#5641#5752#0" expanded="false" />
-            <element signature="e#5791#6433#0" expanded="false" />
-            <element signature="e#6233#6297#0" expanded="false" />
-            <element signature="e#6323#6433#0" expanded="false" />
-            <element signature="e#6477#6632#0" expanded="false" />
-            <element signature="e#6616#6632#0" expanded="false" />
-            <element signature="e#6669#7115#0" expanded="false" />
-            <element signature="e#6990#7033#0" expanded="false" />
-            <element signature="e#7059#7115#0" expanded="false" />
-            <element signature="e#7117#7151#0" expanded="false" />
-            <element signature="e#7486#8371#0" expanded="false" />
-            <element signature="e#7545#7967#0" expanded="false" />
-            <element signature="e#7545#7651#1" expanded="false" />
-            <element signature="e#8031#8371#0" expanded="false" />
-            <element signature="e#8031#8142#1" expanded="false" />
-            <element signature="e#9273#9346#0" expanded="false" />
-            <element signature="e#9386#9459#0" expanded="false" />
-            <element signature="e#9531#9548#0" expanded="false" />
-            <element signature="e#9598#9709#0" expanded="false" />
-            <element signature="e#9762#9891#0" expanded="false" />
-            <element signature="e#9939#10058#0" expanded="false" />
-            <element signature="e#10084#10623#0" expanded="false" />
-            <element signature="e#10110#10612#0" expanded="false" />
-            <element signature="e#10658#10892#0" expanded="false" />
-            <element signature="e#10798#10814#0" expanded="false" />
-            <element signature="e#10839#10892#0" expanded="false" />
-            <element signature="e#10925#11206#0" expanded="false" />
-            <element signature="e#11190#11206#0" expanded="false" />
-            <element signature="e#11241#11447#0" expanded="false" />
-            <element signature="e#11265#11329#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -955,14 +668,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/crm/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/teacher/my_students.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
@@ -975,39 +680,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="219">
           <caret line="100" column="20" lean-forward="true" selection-start-line="100" selection-start-column="20" selection-end-line="100" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/teacher/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="7" column="57" lean-forward="false" selection-start-line="7" selection-start-column="57" selection-end-line="7" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/teacher/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="27" column="44" lean-forward="false" selection-start-line="27" selection-start-column="44" selection-end-line="27" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/teacher/class_stu_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="37" column="37" lean-forward="false" selection-start-line="37" selection-start-column="37" selection-end-line="37" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/student/templatetags/stu_tags.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="57" column="36" lean-forward="false" selection-start-line="57" selection-start-column="36" selection-end-line="57" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1015,10 +687,42 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
           <caret line="100" column="48" lean-forward="false" selection-start-line="100" selection-start-column="48" selection-end-line="100" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/king_admin/table_objs.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="417">
+          <caret line="134" column="0" lean-forward="false" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/king_admin/king_admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="447">
+          <caret line="99" column="0" lean-forward="true" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MyperfectCRM/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="19" column="22" lean-forward="false" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://F:/python安装目录/Lib/site-packages/django/db/models/query.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="43">
+          <caret line="881" column="8" lean-forward="false" selection-start-line="881" selection-start-column="8" selection-end-line="881" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/539742d6/09652008-19a0-45e4-a458-335df863f14c/main.crm_customer" />
+    <entry file="das://table:/539742d6/09652008-19a0-45e4-a458-335df863f14c/main.crm_course" />
+    <entry file="das://table:/539742d6/09652008-19a0-45e4-a458-335df863f14c/main.crm_studyrecord" />
     <entry file="file://$PROJECT_DIR$/king_admin/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
@@ -1027,46 +731,226 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/king_admin/views.py">
+    <entry file="das://table:/539742d6/09652008-19a0-45e4-a458-335df863f14c/main.crm_enrollment" />
+    <entry file="das://table:/539742d6/8f6c1a83-0b47-4d5d-90a6-e627e3df0e4d/main.crm_enrollment">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/python安装目录/Lib/site-packages/django/template/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="108" column="53" lean-forward="false" selection-start-line="108" selection-start-column="53" selection-end-line="108" selection-end-column="53" />
+        <state relative-caret-position="-330">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/king_admin/table_objs.html">
+    <entry file="file://$PROJECT_DIR$/crm/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="134" column="0" lean-forward="false" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
+        <state relative-caret-position="308">
+          <caret line="200" column="37" lean-forward="false" selection-start-line="200" selection-start-column="37" selection-end-line="200" selection-end-column="37" />
           <folding>
-            <element signature="n#block#1;n#!!top" expanded="false" />
+            <element signature="e#336#1641#0" expanded="false" />
+            <element signature="e#745#875#0" expanded="false" />
+            <element signature="e#1232#1260#0" expanded="false" />
+            <element signature="e#1526#1562#0" expanded="false" />
+            <element signature="e#1587#1641#0" expanded="false" />
+            <element signature="e#1673#1848#0" expanded="false" />
+            <element signature="e#1754#1770#0" expanded="false" />
+            <element signature="e#1796#1848#0" expanded="false" />
+            <element signature="e#1892#2506#0" expanded="false" />
+            <element signature="e#2091#2216#0" expanded="false" />
+            <element signature="e#2371#2418#0" expanded="false" />
+            <element signature="e#2444#2506#0" expanded="false" />
+            <element signature="e#2540#2880#0" expanded="false" />
+            <element signature="e#2784#2800#0" expanded="false" />
+            <element signature="e#2825#2880#0" expanded="false" />
+            <element signature="e#2914#3132#0" expanded="false" />
+            <element signature="e#3038#3054#0" expanded="false" />
+            <element signature="e#3079#3132#0" expanded="false" />
+            <element signature="e#3169#4018#0" expanded="false" />
+            <element signature="e#3313#3369#0" expanded="false" />
+            <element signature="e#3823#3881#0" expanded="false" />
+            <element signature="e#3907#4018#0" expanded="false" />
+            <element signature="e#4059#4757#0" expanded="false" />
+            <element signature="e#4576#4621#0" expanded="false" />
+            <element signature="e#4647#4757#0" expanded="false" />
+            <element signature="e#4797#5752#0" expanded="false" />
+            <element signature="e#4949#5017#0" expanded="false" />
+            <element signature="e#5134#5347#0" expanded="false" />
+            <element signature="e#5553#5615#0" expanded="false" />
+            <element signature="e#5641#5752#0" expanded="false" />
+            <element signature="e#5791#6433#0" expanded="false" />
+            <element signature="e#6233#6297#0" expanded="false" />
+            <element signature="e#6323#6433#0" expanded="false" />
+            <element signature="e#6616#6632#0" expanded="false" />
+            <element signature="e#6669#7115#0" expanded="false" />
+            <element signature="e#6990#7033#0" expanded="false" />
+            <element signature="e#7059#7115#0" expanded="false" />
+            <element signature="e#7117#7151#0" expanded="false" />
+            <element signature="e#7486#8371#0" expanded="false" />
+            <element signature="e#7545#7967#0" expanded="false" />
+            <element signature="e#7545#7651#1" expanded="false" />
+            <element signature="e#8031#8371#0" expanded="false" />
+            <element signature="e#8031#8142#1" expanded="false" />
+            <element signature="e#8432#10623#0" expanded="false" />
+            <element signature="e#9273#9346#0" expanded="false" />
+            <element signature="e#9386#9459#0" expanded="false" />
+            <element signature="e#9531#9548#0" expanded="false" />
+            <element signature="e#9598#9709#0" expanded="false" />
+            <element signature="e#9762#9891#0" expanded="false" />
+            <element signature="e#9939#10058#0" expanded="false" />
+            <element signature="e#10084#10623#0" expanded="false" />
+            <element signature="e#10110#10612#0" expanded="false" />
+            <element signature="e#10658#10892#0" expanded="false" />
+            <element signature="e#10798#10814#0" expanded="false" />
+            <element signature="e#10839#10892#0" expanded="false" />
+            <element signature="e#10925#11206#0" expanded="false" />
+            <element signature="e#11190#11206#0" expanded="false" />
+            <element signature="e#11241#11447#0" expanded="false" />
+            <element signature="e#11265#11329#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/king_admin/king_admin.py">
+    <entry file="das://table:/539742d6/8f6c1a83-0b47-4d5d-90a6-e627e3df0e4d/main.crm_contracttemplate">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/sales/stu_registration.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="99" column="0" lean-forward="true" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
+        <state relative-caret-position="167">
+          <caret line="44" column="63" lean-forward="false" selection-start-line="44" selection-start-column="63" selection-end-line="44" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/crm/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1078">
+          <caret line="121" column="8" lean-forward="false" selection-start-line="121" selection-start-column="8" selection-end-line="121" selection-end-column="8" />
           <folding>
-            <element signature="n#!!doc" expanded="false" />
-            <element signature="e#233#1991#0" expanded="false" />
-            <element signature="e#574#1884#0" expanded="false" />
-            <element signature="e#951#1087#0" expanded="false" />
-            <element signature="e#1283#1883#0" expanded="false" />
-            <element signature="e#1933#1991#0" expanded="false" />
-            <element signature="e#2506#2529#0" expanded="false" />
-            <element signature="e#2602#2619#0" expanded="false" />
-            <element signature="e#2963#2999#0" expanded="false" />
-            <element signature="e#3702#3749#0" expanded="false" />
-            <element signature="e#3751#3787#0" expanded="false" />
-            <element signature="e#3865#4035#0" expanded="false" />
-            <element signature="e#4584#5009#0" expanded="false" />
-            <element signature="e#4584#4627#0" expanded="false" />
-            <element signature="e#5462#5633#0" expanded="false" />
-            <element signature="e#5672#5701#0" expanded="false" />
-            <element signature="e#5769#6013#0" expanded="false" />
+            <element signature="e#826#1802#0" expanded="false" />
+            <element signature="e#1121#1182#0" expanded="false" />
+            <element signature="e#1223#1529#0" expanded="false" />
+            <element signature="e#1572#1802#0" expanded="false" />
+            <element signature="e#1848#2441#0" expanded="false" />
+            <element signature="e#2487#3517#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/crm/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="43" column="9" lean-forward="true" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/crm/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="7" column="58" lean-forward="false" selection-start-line="7" selection-start-column="58" selection-end-line="7" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/king_admin/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="42" column="57" lean-forward="false" selection-start-line="42" selection-start-column="57" selection-end-line="42" selection-end-column="57" />
+          <folding>
+            <element signature="e#755#1598#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/crm/templatetags/crm_tags.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="11" column="20" lean-forward="false" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+          <folding>
+            <element signature="e#67#94#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2017.3/system/python_stubs/1311142549/builtins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="517" column="4" lean-forward="false" selection-start-line="517" selection-start-column="4" selection-end-line="517" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teacher/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="7" column="58" lean-forward="false" selection-start-line="7" selection-start-column="58" selection-end-line="7" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teacher/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="27" column="40" lean-forward="false" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/student/my_classes.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="28" column="35" lean-forward="true" selection-start-line="28" selection-start-column="35" selection-end-line="28" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student/templatetags/stu_tags.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/teacher/class_stu_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="49" column="40" lean-forward="false" selection-start-line="49" selection-start-column="40" selection-end-line="49" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="7" column="49" lean-forward="true" selection-start-line="7" selection-start-column="49" selection-end-line="7" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="51" column="48" lean-forward="true" selection-start-line="51" selection-start-column="48" selection-end-line="51" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/student/homework_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="33" lean-forward="true" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
+          <folding>
+            <element signature="e#401#436#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>

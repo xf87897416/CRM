@@ -21,7 +21,7 @@ def enrollment(request,customer_id):
         enroll_form = forms.EnrollmentForm(request.POST)
         if enroll_form.is_valid(): #验证成功
             msg = '''请将此链接发送给客户进行填写:
-                http://localhost:8000/crm/customer/registration/{enroll_obj_id}/{random_str}/'''
+                http://localhost:8009/crm/customer/registration/{enroll_obj_id}/{random_str}/'''
 
             try:
                 print("cleandata ",enroll_form.cleaned_data)
