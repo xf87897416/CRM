@@ -269,6 +269,7 @@ def recursive_related_objs_lookup(objs):
 
                 if hasattr(obj, related_obj.get_accessor_name()):  # hassattr(customer,'enrollment_set')
                     accessor_obj = getattr(obj, related_obj.get_accessor_name()) #customerfollowup_set
+
                     print("-------ManyToManyRel",accessor_obj,related_obj.get_accessor_name())
                     # 上面accessor_obj 相当于 customer.enrollment_set
                     if hasattr(accessor_obj, 'select_related'):  # slect_related() == all()
@@ -284,19 +285,23 @@ def recursive_related_objs_lookup(objs):
 
             elif hasattr(obj,related_obj.get_accessor_name()): # hassattr(customer,'enrollment_set')
                 accessor_obj = getattr(obj,related_obj.get_accessor_name())
-                #上面accessor_obj 相当于 customer.enrollment_set
-                if hasattr(accessor_obj,'select_related'): # slect_related() == all()
-                    target_objs = accessor_obj.select_related() #.filter(**filter_coditions)
-                    # target_objs 相当于 customer.enrollment_set.all()
+                print("非常重要的一环：：",accessor_obj)
+                if accessor_obj.model._meta.model_name == 'userprofile':
+                    pass
                 else:
-                    print("one to one i guess:",accessor_obj)
-                    target_objs = accessor_obj
+                #上面accessor_obj 相当于 customer.enrollment_set
+                    if hasattr(accessor_obj,'select_related'): # slect_related() == all()
+                        target_objs = accessor_obj.select_related() #.filter(**filter_coditions)
+                        # target_objs 相当于 customer.enrollment_set.all()
+                    else:
+                        print("one to one i guess:",accessor_obj)
+                        target_objs = accessor_obj
 
-                if len(target_objs) >0:
-                    #print("\033[31;1mdeeper layer lookup -------\033[0m")
-                    #nodes = recursive_related_objs_lookup(target_objs,model_name)
-                    nodes = recursive_related_objs_lookup(target_objs)
-                    ul_ele += nodes
+                    if len(target_objs) >0:
+                        #print("\033[31;1mdeeper layer lookup -------\033[0m")
+                        #nodes = recursive_related_objs_lookup(target_objs,model_name)
+                        nodes = recursive_related_objs_lookup(target_objs)
+                        ul_ele += nodes
     ul_ele +="</ul>"
     return ul_ele
 
