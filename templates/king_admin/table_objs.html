@@ -69,7 +69,7 @@
         </div>
 
         <div class="row" style="margin-top: 10px">
-            <form onsubmit="ActionSubmit(this)" method="POST">{% csrf_token %}
+            <form onsubmit="return ActionSubmit(this)" method="POST">{% csrf_token %}
                 <div class="col-lg-2">
                     <select id="action_list" name="action" class="form-control" style="margin-left:15px">
                           <option value="">---------</option>
@@ -186,16 +186,17 @@
            var selected_ids = [];
            $("input[tag='row-check']:checked").each(function () {
                selected_ids.push($(this).val());
-           })
+           });
            var selected_action = $("#action_list").val();
-           console.log(selected_ids)
-           console.log(selected_action)
+           console.log(selected_ids);
+           console.log(selected_action);
            if (selected_ids.length == 0){
                alert("No object got selected!");
-               return
+               return false
            }
            if (!selected_action ){
                alert("No action got selected!");
+               return false
            }
 
            //start submit
